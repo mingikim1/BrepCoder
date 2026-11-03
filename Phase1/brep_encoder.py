@@ -1,3 +1,6 @@
+# The curve / surface / graph encoders are adapted from UV-Net
+# (https://github.com/AutodeskAILab/UV-Net), Copyright (c) 2021 Autodesk, Inc, MIT License.
+
 import torch
 from torch import nn
 import torch.nn.functional as F

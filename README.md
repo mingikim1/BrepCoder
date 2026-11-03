@@ -186,3 +186,7 @@ If you find our work useful, please consider citing:
 ## 👏 Acknowledgements
 
 This project builds on [UV-Net](https://github.com/AutodeskAILab/UV-Net) (B-rep encoder), [CoCa](https://arxiv.org/abs/2205.01917) (multimodal alignment), [DeepCAD](https://github.com/ChrisWu1997/DeepCAD) (dataset), CAD-Llama (Python-like CAD code format), and [Qwen2.5](https://huggingface.co/Qwen/Qwen2.5-1.5B) (LLM backbone). We thank the authors for releasing their work. Qwen2.5-1.5B is released under the Apache-2.0 license.
+
+## 📄 License
+
+This project is released under the [MIT License](LICENSE). The B-rep encoder in `Phase1/brep_encoder.py` is adapted from [UV-Net](https://github.com/AutodeskAILab/UV-Net) (MIT License).
