@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Data, base LLM and training outputs
+Dataset/
+Checkpoint/
+output/
+*.log
+
+# Editors
+.vscode/
+.idea/
