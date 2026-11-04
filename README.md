@@ -142,7 +142,9 @@ Other options: `--split {train,val,test}`, `--max_samples N`, `--output_file FIL
 
 ## 📏 Evaluation
 
-We evaluate with the [DeepCAD evaluation scripts](https://github.com/rundiwu/DeepCAD/tree/master/evaluation). First, convert the generated code into DeepCAD's command sequence format with `code_to_h5()` in [`Phase2/code_to_h5.py`](Phase2/code_to_h5.py), and save one `<id>.h5` file per sample with the prediction as `out_vec` and the ground truth as `gt_vec`:
+We evaluate with the [DeepCAD evaluation scripts](https://github.com/rundiwu/DeepCAD/tree/master/evaluation). As the ground truth, we use the `cad_vec` files released by DeepCAD (`cad_vec.tar.gz` in their [Google Drive backup](https://drive.google.com/drive/folders/1mSJBZjKC-Z5I7pLPTgb4b5ZP-Y6itvGG?usp=sharing); see the [DeepCAD data section](https://github.com/rundiwu/DeepCAD#data)).
+
+Convert the generated code into DeepCAD's command sequence format with `code_to_h5()` in [`Phase2/code_to_h5.py`](Phase2/code_to_h5.py), and save one `<id>.h5` file per sample with the prediction as `out_vec` and the DeepCAD ground truth as `gt_vec`:
 
 ```python
 # Run from Phase2/ (requires `pip install h5py`)
@@ -151,7 +153,8 @@ from code_to_h5 import code_to_h5
 
 # `result` is one entry of "results" in inference_results_test.json
 out_vec = code_to_h5(result["generated_code"])  # [seq_len, 17]
-gt_vec = code_to_h5(result["original_code"])
+with h5py.File(f"cad_vec/{result['id'][:4]}/{result['id']}.h5", "r") as fp:
+    gt_vec = fp["vec"][:]
 with h5py.File(f"test_h5/{result['id']}.h5", "w") as fp:
     fp.create_dataset("out_vec", data=out_vec)
     fp.create_dataset("gt_vec", data=gt_vec)
