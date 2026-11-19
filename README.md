@@ -179,7 +179,7 @@ If you find our work useful, please consider citing:
 ```bibtex
 @inproceedings{BrepCoder_ECCV2026,
   author    = {Kim, Mingi and Kim, Yongjun and Kang, Jungwoo and Kim, Hyungki},
-  title     = {{BrepCoder}: A Unified Multimodal Large Language Model for Multi-task {B}-rep Reasoning},
+  title     = { {BrepCoder}: A Unified Multimodal Large Language Model for Multi-task {B}-rep Reasoning},
   booktitle = {European Conference on Computer Vision (ECCV)},
   pages     = {428--445},
   year      = {2026}
